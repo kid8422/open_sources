@@ -3,10 +3,12 @@
 ## 20231784
 오픈소스기초설계
 1. 프로젝트 제안서
-3. 파일 업로드
-4. 셀스크립트
+------------------------------------------------------------
+2. 파일 업로드
+------------------------------------------------------------
+3. 셀스크립트
 
-[Baekjoon](https://www.acmicpc.net/user/kid8422)
+<https://www.acmicpc.net/user/kid8422>
 
 ![header](https://capsule-render.vercel.app/api?type=shark&color=gradient&height=200&section=footer&text=H%20e%20l%20l%20o&fontSize=100)
 
