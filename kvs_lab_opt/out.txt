@@ -1,0 +1,240 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 33.33      0.07     0.07                             write
+ 23.81      0.12     0.05    36431     0.00     0.00  custom_strcpy
+ 19.05      0.16     0.04                             read
+  9.52      0.18     0.02    36429     0.00     0.00  custom_strlen
+  4.76      0.19     0.01                             _int_malloc
+  4.76      0.20     0.01                             fsync
+  4.76      0.21     0.01                             random_r
+  0.00      0.21     0.00   325057     0.00     0.00  custom_strcmp
+  0.00      0.21     0.00    30513     0.00     0.00  custom_strchr
+  0.00      0.21     0.00    18925     0.00     0.00  custom_strdup
+  0.00      0.21     0.00    18923     0.00     0.00  put
+  0.00      0.21     0.00    17506     0.00     0.00  create_node
+  0.00      0.21     0.00    17504     0.00     0.00  random_level
+  0.00      0.21     0.00        2     0.00     0.00  kvs_close
+  0.00      0.21     0.00        2     0.00    13.97  kvs_open
+  0.00      0.21     0.00        1     0.00    27.93  do_recovery
+  0.00      0.21     0.00        1     0.00     9.61  do_snapshot
+  0.00      0.21     0.00        1     0.00    70.00  main
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 4.76% of 0.21 seconds
+
+index % time    self  children    called     name
+                0.00    0.07       1/1           __libc_start_call_main [3]
+[1]     33.3    0.00    0.07       1         main [1]
+                0.00    0.03   10171/18923       put [4]
+                0.00    0.03       2/2           kvs_open [9]
+                0.00    0.01       1/1           do_snapshot [15]
+                0.00    0.00   30513/30513       custom_strchr [17]
+                0.00    0.00       2/2           kvs_close [19]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     33.3    0.07    0.00                 write [2]
+-----------------------------------------------
+                                                 <spontaneous>
+[3]     33.3    0.00    0.07                 __libc_start_call_main [3]
+                0.00    0.07       1/1           main [1]
+-----------------------------------------------
+                0.00    0.03    8752/18923       do_recovery [10]
+                0.00    0.03   10171/18923       main [1]
+[4]     28.8    0.00    0.06   18923         put [4]
+                0.00    0.06   17504/17506       create_node [5]
+                0.00    0.00    1419/18925       custom_strdup [8]
+                0.00    0.00  325057/325057      custom_strcmp [16]
+                0.00    0.00   17504/17504       random_level [18]
+-----------------------------------------------
+                0.00    0.00       2/17506       kvs_open [9]
+                0.00    0.06   17504/17506       put [4]
+[5]     27.5    0.00    0.06   17506         create_node [5]
+                0.00    0.03   17506/18925       custom_strdup [8]
+                0.02    0.00   17506/36431       custom_strcpy [6]
+-----------------------------------------------
+                0.02    0.00   17506/36431       create_node [5]
+                0.03    0.00   18925/36431       custom_strdup [8]
+[6]     23.8    0.05    0.00   36431         custom_strcpy [6]
+-----------------------------------------------
+                                                 <spontaneous>
+[7]     19.0    0.04    0.00                 read [7]
+-----------------------------------------------
+                0.00    0.00    1419/18925       put [4]
+                0.00    0.03   17506/18925       create_node [5]
+[8]     17.3    0.00    0.04   18925         custom_strdup [8]
+                0.03    0.00   18925/36431       custom_strcpy [6]
+                0.01    0.00   18925/36429       custom_strlen [11]
+-----------------------------------------------
+                0.00    0.03       2/2           main [1]
+[9]     13.3    0.00    0.03       2         kvs_open [9]
+                0.00    0.03       1/1           do_recovery [10]
+                0.00    0.00       2/17506       create_node [5]
+-----------------------------------------------
+                0.00    0.03       1/1           kvs_open [9]
+[10]    13.3    0.00    0.03       1         do_recovery [10]
+                0.00    0.03    8752/18923       put [4]
+-----------------------------------------------
+                0.01    0.00   17504/36429       do_snapshot [15]
+                0.01    0.00   18925/36429       custom_strdup [8]
+[11]     9.5    0.02    0.00   36429         custom_strlen [11]
+-----------------------------------------------
+                                                 <spontaneous>
+[12]     4.8    0.01    0.00                 fsync [12]
+-----------------------------------------------
+                                                 <spontaneous>
+[13]     4.8    0.01    0.00                 random_r [13]
+-----------------------------------------------
+                                                 <spontaneous>
+[14]     4.8    0.01    0.00                 _int_malloc [14]
+-----------------------------------------------
+                0.00    0.01       1/1           main [1]
+[15]     4.6    0.00    0.01       1         do_snapshot [15]
+                0.01    0.00   17504/36429       custom_strlen [11]
+-----------------------------------------------
+                0.00    0.00  325057/325057      put [4]
+[16]     0.0    0.00    0.00  325057         custom_strcmp [16]
+-----------------------------------------------
+                0.00    0.00   30513/30513       main [1]
+[17]     0.0    0.00    0.00   30513         custom_strchr [17]
+-----------------------------------------------
+                0.00    0.00   17504/17504       put [4]
+[18]     0.0    0.00    0.00   17504         random_level [18]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[19]     0.0    0.00    0.00       2         kvs_close [19]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [14] _int_malloc            [11] custom_strlen           [1] main
+   [5] create_node            [10] do_recovery             [4] put
+  [17] custom_strchr          [15] do_snapshot            [18] random_level
+  [16] custom_strcmp          [12] fsync                  [13] random_r
+   [6] custom_strcpy          [19] kvs_close               [7] read
+   [8] custom_strdup           [9] kvs_open                [2] write
